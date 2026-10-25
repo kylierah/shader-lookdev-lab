@@ -1,8 +1,8 @@
 # Shader LookDev Lab (Procedural Material R&D Toolkit)
 
-언리얼 엔진 5 / 유니티 6 등 상용 엔진 이식 전, 엔진 재컴파일 대기 없이 브라우저 환경에서 GLSL 절차적 노이즈 및 PBR 머티리얼을 검증하고 
+언리얼 엔진 5 / 유니티 6 등 상용 엔진 이식 전, 엔진 재컴파일 대기 없이 브라우저 환경에서 
 
-프로토타이핑하는 초경량 LookDev 샌드박스입니다.
+GLSL 절차적 노이즈 및 PBR 머티리얼을 검증하고 프로토타이핑하는 초경량 LookDev 샌드박스입니다.
 
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-GitHub%20Pages-brightgreen?style=for-the-badge&logo=github)](https://kylierah.github.io/shader-lookdev-lab/)
 [![Three.js](https://img.shields.io/badge/Three.js-r160-black?style=for-the-badge&logo=three.js)](https://threejs.org/)
