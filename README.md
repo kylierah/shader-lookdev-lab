@@ -12,7 +12,7 @@ GLSL 절차적 노이즈 및 PBR 머티리얼을 검증하고 프로토타이핑
 ## 📌 Main Demo
 
 <p align="center">
-  <img src="./assets/demo_preview.gif" width="100%" alt="Shader LookDev Lab Demo Preview" />
+  <img src="assets/demo_preview.gif" width="100%" alt="Shader LookDev Lab Demo Preview" />
   <br>
   <sub><i>Real-time Domain Warping & Procedural Noise R&D in WebGL</i></sub>
 </p>
