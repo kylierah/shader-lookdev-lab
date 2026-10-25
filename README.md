@@ -58,29 +58,35 @@ GLSL 절차적 노이즈 및 PBR 머티리얼을 검증하고 프로토타이핑
 
 본 프로젝트는 관련 기술 표준 명세, 렌더링 이론 및 공식 개발 문서를 참고하여 설계 및 구현되었습니다.
 
-Technical References & Citations
 
-본 프로젝트는 관련 기술 표준 명세, 렌더링 이론 및 공식 개발 문서를 참고하여 설계 및 구현되었습니다.
+# 기술 참고 자료 및 인용 (Technical References & Citations)
 
-1. Engine & Material Pipeline
-MaterialX & OpenUSD — Material interchange, shader graphs, and 3D scene description.
-Unreal Engine 5 — Substrate Materials — Modular material authoring and shading workflows.
-Khronos WebGL 2.0 Specification — Web graphics API specification.
+본 프로젝트는 관련 기술 표준 명세, 렌더링 이론, 셰이더 알고리즘 및 공식 개발 문서를 참고하여 설계 및 구현되었습니다.
 
-3. PBR Theory & LookDev
-Google Filament — Physically Based Rendering — PBR material models, BRDFs, Fresnel reflectance, and energy conservation.
-Epic Games — Real Shading in Unreal Engine 4 — Microfacet BRDFs and GGX-based real-time shading.
-EA Frostbite — Moving Frostbite to PBR — PBR workflows and material consistency.
-Adobe Substance 3D — The PBR Guide — PBR material authoring principles and texture parameters.
+## 1. 엔진 및 머티리얼 파이프라인
 
-4. Procedural Noise & Shader Algorithms
-Inigo Quilez — Articles — Procedural noise, domain warping, and shader algorithms.
-The Book of Shaders — GLSL fragment shaders, procedural patterns, and noise techniques.
+- [MaterialX 공식 문서](https://materialx.org/) — 셰이더 그래프 및 머티리얼 데이터 교환 구조.
+- [OpenUSD 공식 문서](https://openusd.org/release/index.html) — 3D 씬 기술 및 데이터 교환 파이프라인.
+- [Unreal Engine 5 — Substrate 머티리얼 시스템](https://dev.epicgames.com/documentation/en-us/unreal-engine/overview-of-substrate-materials-in-unreal-engine) — 모듈형 머티리얼 제작 및 셰이딩 워크플로.
+- [Khronos WebGL 2.0 공식 명세](https://registry.khronos.org/webgl/specs/2.0.0/) — 웹 그래픽스 API의 공식 기술 명세.
 
-5. Interactive UI & Data Pipeline
-lil-gui Documentation — Real-time parameter controls and interactive debugging interfaces.
-Three.js — OrbitControls — Interactive 3D viewport camera controls.
-MDN — File API & Blob — Client-side file handling and data import/export.
+## 2. PBR 이론 및 LookDev
+
+- [Google Filament — 물리 기반 렌더링](https://google.github.io/filament/main/filament.html) — BRDF, 프레넬 반사, 에너지 보존 및 PBR 셰이딩 모델.
+- [Epic Games — Real Shading in Unreal Engine 4](https://cdn2.unrealengine.com/Resources/files/2013SiggraphPresentationsNotes-26915738.pdf) — GGX 마이크로패싯 BRDF 및 실시간 물리 기반 셰이딩 이론.
+- [EA Frostbite — Moving Frostbite to PBR](https://www.ea.com/frostbite/news/moving-frostbite-to-pbr) — PBR 제작 워크플로 및 재질 일관성.
+- [Adobe Substance 3D — The PBR Guide](https://substance3d.adobe.com/tutorials/courses/the-pbr-guide-part-1) — 물리 기반 재질 제작 원칙 및 텍스처 파라미터.
+
+## 3. 절차적 노이즈 및 셰이더 알고리즘
+
+- [Inigo Quilez — 셰이더 및 절차적 그래픽스 기술 문서](https://iquilezles.org/articles/) — 절차적 노이즈, 도메인 워핑 및 셰이더 알고리즘.
+- [The Book of Shaders](https://thebookofshaders.com/) — GLSL 프래그먼트 셰이더, 절차적 패턴 및 노이즈 구현 기법.
+
+## 4. 인터랙티브 UI 및 데이터 파이프라인
+
+- [lil-gui 공식 문서](https://lil-gui.georgealways.com/) — 실시간 파라미터 조절 및 인터랙티브 인스펙터 UI.
+- [Three.js — OrbitControls](https://threejs.org/docs/#examples/en/controls/OrbitControls) — 3D 뷰포트 카메라의 회전, 확대 및 이동 제어.
+- [MDN — File API](https://developer.mozilla.org/en-US/docs/Web/API/File_API) · [Blob API](https://developer.mozilla.org/en-US/docs/Web/API/Blob) — 브라우저 기반 파일 처리 및 데이터 가져오기·내보내기.
 
 ---
 
