@@ -15,8 +15,6 @@ GLSL 절차적 노이즈 및 PBR 머티리얼을 검증하고 프로토타이핑
 ![Shader LookDev Lab Demo Preview](./assets/demo_preview.gif)
 *Real-time Domain Warping & Procedural Noise R&D in WebGL*
 
----
-
 ## Background & Problem Statement
 
 실무 게임/영상 제작 파이프라인에서 셰이더 LookDev 및 R&D 과정 중 발생하는 3가지 주요 병목을 해결하기 위해 개발된 웹 워크벤치입니다.
@@ -26,7 +24,7 @@ GLSL 절차적 노이즈 및 PBR 머티리얼을 검증하고 프로토타이핑
 컴파일 대기 시간과 높은 오버헤드가 발생합니다.
 * **Solution:** 초경량 WebGL2 / GLSL 샌드박스를 구축하여 브라우저에서 제로 대기시간으로 fBm 및 Domain Warping 수식을 실시간 튜닝합니다.
 
-### 2. PBR 조명 차폐로 인한 수학적 수치 검증 불가 (Raw Inspection)
+### 2. PBR 조명 및 그림자 처리로 인한 수학적 수치 검증 불가 (Raw Inspection)
 * **Problem:** 화려한 PBR 조명과 반사광으로 인해 셰이더 바탕이 되는 노이즈 수치(0.0~1.0)의 수학적 오차나 버그를 직관적으로 진단하기 어렵습니다.
 * **Solution:** **LookDev Debug Pass (`uDebugNoise`)**를 탑재하여 버튼 하나로 PBR 연산을 우회하고 원본 흑백 노이즈 맵을 즉시 진단합니다.
 
