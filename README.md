@@ -12,9 +12,10 @@ GLSL 절차적 노이즈 및 PBR 머티리얼을 검증하고 프로토타이핑
 ## 📌 Main Demo
 
 <p align="center">
-<img width="960" height="540" alt="demo_preview" src="https://github.com/user-attachments/assets/5b288c47-61f7-4e52-ace6-77d582d0a97a" />
 
-  <sub><i>Real-time Domain Warping & Procedural Noise R&D in WebGL</i></sub>
+<img width="960" height="540" alt="demo_preview" src="https://github.com/user-attachments/assets/2a959356-7ba8-48d7-ad99-a2693812c687" />
+
+<sub><i>Real-time Domain Warping & Procedural Noise R&D in WebGL</i></sub>
 </p>
 
 ## Background & Problem Statement
@@ -43,10 +44,10 @@ GLSL 절차적 노이즈 및 PBR 머티리얼을 검증하고 프로토타이핑
 * **Multi-Noise Support:** Value Noise, Perlin Noise, Voronoi (Cellular) 선택 가능.
 
 <p align="center">
- 
 
-  <br>
-  <sub><b>Raw Value Debug Pass:</b> PBR 라이팅 우회 후 원본 노이즈 수치 엑스레이 검증</sub>
+<img width="960" height="540" alt="demo_debug" src="https://github.com/user-attachments/assets/2baf5070-568a-4b61-aea1-fe19a154889e" />
+
+<sub><b>Raw Value Debug Pass:</b> PBR 라이팅 우회 후 원본 노이즈 수치 엑스레이 검증</sub>
 </p>
 
 ### 2. Physically Based Rendering (PBR) & PMREM IBL
