@@ -11,12 +11,13 @@ GLSL 절차적 노이즈 및 PBR 머티리얼을 검증하고 프로토타이핑
 
 ## 📌 Main Demo
 
-<p align="center">
+<div align="center">
 
 <img width="960" height="540" alt="demo_preview" src="https://github.com/user-attachments/assets/2a959356-7ba8-48d7-ad99-a2693812c687" />
 
 <sub><i>Real-time Domain Warping & Procedural Noise R&D in WebGL</i></sub>
-</p>
+
+</div>
 
 ## Background & Problem Statement
 
@@ -43,12 +44,13 @@ GLSL 절차적 노이즈 및 PBR 머티리얼을 검증하고 프로토타이핑
 * **Domain Warping:** Inigo Quilez 모델 기반의 1차/2차 좌표 왜곡 알고리즘 구현으로 유기적 액체 질감 연출.
 * **Multi-Noise Support:** Value Noise, Perlin Noise, Voronoi (Cellular) 선택 가능.
 
-<p align="center">
+<div align="center">
 
 <img width="960" height="540" alt="demo_debug" src="https://github.com/user-attachments/assets/2baf5070-568a-4b61-aea1-fe19a154889e" />
 
 <sub><b>Raw Value Debug Pass:</b> PBR 라이팅 우회 후 원본 노이즈 수치 엑스레이 검증</sub>
-</p>
+
+</div>
 
 ### 2. Physically Based Rendering (PBR) & PMREM IBL
 * **Energy Conservation:** Google Filament PBR 명세 및 Fresnel-Schlick 수식을 준수하여 스페큘러 반사의 물리적 정확도 보장.
