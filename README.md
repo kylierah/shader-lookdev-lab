@@ -12,8 +12,8 @@ GLSL 절차적 노이즈 및 PBR 머티리얼을 검증하고 프로토타이핑
 ## 📌 Main Demo
 
 <p align="center">
-  <img src="assets/demo_preview.gif" width="100%" alt="Shader LookDev Lab Demo Preview" />
-  <br>
+<img width="960" height="540" alt="demo_preview" src="https://github.com/user-attachments/assets/5b288c47-61f7-4e52-ace6-77d582d0a97a" />
+
   <sub><i>Real-time Domain Warping & Procedural Noise R&D in WebGL</i></sub>
 </p>
 
@@ -43,7 +43,8 @@ GLSL 절차적 노이즈 및 PBR 머티리얼을 검증하고 프로토타이핑
 * **Multi-Noise Support:** Value Noise, Perlin Noise, Voronoi (Cellular) 선택 가능.
 
 <p align="center">
-  <img src="./assets/demo_debug.gif" width="80%" alt="Raw Value Debug Pass" />
+ 
+
   <br>
   <sub><b>Raw Value Debug Pass:</b> PBR 라이팅 우회 후 원본 노이즈 수치 엑스레이 검증</sub>
 </p>
