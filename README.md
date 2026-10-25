@@ -67,14 +67,14 @@ GLSL 절차적 노이즈 및 PBR 머티리얼을 검증하고 프로토타이핑
 
 - [MaterialX 공식 문서](https://materialx.org/) — 셰이더 그래프 및 머티리얼 데이터 교환 구조.
 - [OpenUSD 공식 문서](https://openusd.org/release/index.html) — 3D 씬 기술 및 데이터 교환 파이프라인.
-- [Unreal Engine 5 — Substrate 머티리얼 시스템](https://dev.epicgames.com/documentation/en-us/unreal-engine/overview-of-substrate-materials-in-unreal-engine) — 모듈형 머티리얼 제작 및 셰이딩 워크플로.
+- [Unreal Engine 5 — Substrate 머티리얼 시스템](https://dev.epicgames.com/documentation/en-us/unreal-engine/overview-of-substrate-materials-in-unreal-engine) — 모듈형 머티리얼 제작 및 셰이딩 워크플로우.
 - [Khronos WebGL 2.0 공식 명세](https://registry.khronos.org/webgl/specs/2.0.0/) — 웹 그래픽스 API의 공식 기술 명세.
 
 ## 2. PBR 이론 및 LookDev
 
 - [Google Filament — 물리 기반 렌더링](https://google.github.io/filament/main/filament.html) — BRDF, 프레넬 반사, 에너지 보존 및 PBR 셰이딩 모델.
 - [Epic Games — Real Shading in Unreal Engine 4](https://cdn2.unrealengine.com/Resources/files/2013SiggraphPresentationsNotes-26915738.pdf) — GGX 마이크로패싯 BRDF 및 실시간 물리 기반 셰이딩 이론.
-- [EA Frostbite — Moving Frostbite to PBR](https://www.ea.com/frostbite/news/moving-frostbite-to-pbr) — PBR 제작 워크플로 및 재질 일관성.
+- [EA Frostbite — Moving Frostbite to PBR](https://www.ea.com/frostbite/news/moving-frostbite-to-pbr) — PBR 제작 워크플로우 및 재질 일관성.
 - [Adobe Substance 3D — The PBR Guide](https://substance3d.adobe.com/tutorials/courses/the-pbr-guide-part-1) — 물리 기반 재질 제작 원칙 및 텍스처 파라미터.
 
 ## 3. 절차적 노이즈 및 셰이더 알고리즘
