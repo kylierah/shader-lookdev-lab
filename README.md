@@ -24,7 +24,7 @@ GLSL 절차적 노이즈 및 PBR 머티리얼을 검증하고 프로토타이핑
 
 ### 2. PBR 조명 및 그림자 처리로 인한 수학적 수치 검증 불가 (Raw Inspection)
 * **Problem:** 화려한 PBR 조명과 반사광으로 인해 셰이더 바탕이 되는 노이즈 수치(0.0~1.0)의 수학적 오차나 버그를 직관적으로 진단하기 어렵습니다.
-* **Solution:** **LookDev Debug Pass (`uDebugNoise`)**를 탑재하여 버튼 하나로 PBR 연산을 우회하고 원본 흑백 노이즈 맵을 즉시 진단합니다.
+* **Solution:** **LookDev Debug Pass** (uDebugNoise)를 탑재하여 버튼 하나로 PBR 연산을 우회하고 원본 흑백 노이즈 맵을 즉시 진단합니다.
 
 ### 3. 직군 간 파라미터 유실 및 데이터 파편화 (Parameter Drift)
 * **Problem:** TA와 3D 아티스트 간 셰이더 수치 전달 시 메모장/캡처 이미지 사용으로 인해 세팅값이 누락되거나 이관 오류가 빈번합니다.
