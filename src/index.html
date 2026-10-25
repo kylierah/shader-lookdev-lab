@@ -1,42 +1,20 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Shader LookDev Lab</title>
-  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
   <div id="app">
-    <!-- 1. 좌측 3D 화면 영역 (이 태그가 없어서 까만 화면이었던 것!) -->
-    <main id="viewport-container"></main>
+    <!-- 
+      기존 수동 HTML UI 패널은 lil-gui 인스펙터 패널 도입으로 대체되어 주석/삭제 처리합니다.
+      <div id="ui-panel"> ... </div>
+    -->
 
-    <!-- 2. 우측 Inspector UI 패널 영역 -->
-    <aside id="inspector">
-      <div class="logo">Shader LookDev Lab <span>v0.1 MVP</span></div>
-      
-      <section class="control-group">
-        <h3>Procedural Noise Controls</h3>
-        
-        <div class="field">
-          <label for="noiseScale">Noise Scale</label>
-          <input type="range" id="noiseScale" min="1.0" max="20.0" step="0.5" value="8.0">
-          <span id="val-noiseScale" class="val-indicator">8.0</span>
-        </div>
-
-        <div class="field">
-          <label for="roughness">Roughness</label>
-          <input type="range" id="roughness" min="0.0" max="1.0" step="0.05" value="0.30">
-          <span id="val-roughness" class="val-indicator">0.30</span>
-        </div>
-
-        <div class="field">
-          <label for="maskCutoff">Mask Cutoff Threshold</label>
-          <input type="range" id="maskCutoff" min="0.0" max="1.0" step="0.05" value="0.50">
-          <span id="val-maskCutoff" class="val-indicator">0.50</span>
-        </div>
-      </section>
-    </aside>
+    <!-- 3D 캔버스 전용 컨테이너 -->
+    <div id="viewport-container"></div>
   </div>
 
   <script type="module" src="./main.js"></script>

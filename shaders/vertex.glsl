@@ -1,9 +1,15 @@
 // Vertex Shader: Pass UV coordinates and Normals to Fragment Shader
-varying vec2 vUv;
-varying vec3 vNormal;
+const vertexShader = `
+    varying vec2 vUv;
+    varying vec3 vNormal;
+    varying vec3 vWorldPosition;
 
-void main() {
-    vUv = uv;
-    vNormal = normalize(normalMatrix * normal);
-    gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-}
+    void main() {
+      vUv = uv;
+      vNormal = normalize(mat3(modelMatrix) * normal);
+      vec4 worldPos = modelMatrix * vec4(position, 1.0);
+      vWorldPosition = worldPos.xyz;
+
+      gl_Position = projectionMatrix * viewMatrix * worldPos;
+    }
+  `;
