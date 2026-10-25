@@ -46,7 +46,7 @@ function initApp() {
     console.warn('OrbitControls 로드 경고:', e);
   }
 
-  // 2. Uniforms 정의 (Domain Warping 변수 추가)
+  // 2. Uniforms 정의
   const dummyTexture = new THREE.DataTexture(new Uint8Array([255, 255, 255, 255]), 1, 1);
   dummyTexture.needsUpdate = true;
 
@@ -60,20 +60,18 @@ function initApp() {
     uHasEnvMap: { value: false },
     uMaskCutoff: { value: 0.50 },
     
-    // Noise Parameters
-    uNoiseType: { value: 3 }, // fBm
+    uNoiseType: { value: 3 },
     uOctaves: { value: 4 },
     uLacunarity: { value: 2.0 },
     uGain: { value: 0.5 },
     uDebugNoise: { value: false },
 
-    // [신규] Domain Warping Parameters
-    uWarpEnable: { value: true },      // Warping 활성화
-    uWarpStrength: { value: 1.2 },     // 왜곡 강도
-    uWarpIterations: { value: 2 }      // 1: Single, 2: Double Warping
+    uWarpEnable: { value: true },
+    uWarpStrength: { value: 1.2 },
+    uWarpIterations: { value: 2 }
   };
 
-  // 3. HDRI Studio Map 로드 (PMREMGenerator 파이프라인)
+  // 3. HDRI Studio Map 로드
   const pmremGenerator = new THREE.PMREMGenerator(renderer);
   pmremGenerator.compileEquirectangularShader();
 
@@ -82,13 +80,10 @@ function initApp() {
     'https://cdn.jsdelivr.net/gh/mrdoob/three.js@dev/examples/textures/equirectangular/royal_esplanade_1k.hdr',
     (texture) => {
       const envMap = pmremGenerator.fromEquirectangular(texture).texture;
-
       scene.background = envMap;
       scene.environment = envMap;
-
       uniforms.uEnvMap.value = envMap;
       uniforms.uHasEnvMap.value = true;
-
       texture.dispose();
       pmremGenerator.dispose();
     },
@@ -96,7 +91,7 @@ function initApp() {
     (err) => console.warn('HDRI 로드 실패 (절차적 조명으로 작동):', err)
   );
 
-  // 4. Shaders (Domain Warping & PBR)
+  // 4. Shaders
   const vertexShader = `
     varying vec2 vUv;
     varying vec3 vNormal;
@@ -128,7 +123,6 @@ function initApp() {
     uniform float uGain;
     uniform bool uDebugNoise;
 
-    // Domain Warping Uniforms
     uniform bool uWarpEnable;
     uniform float uWarpStrength;
     uniform int uWarpIterations;
@@ -144,9 +138,6 @@ function initApp() {
       return uv;
     }
 
-    // ==========================================
-    // Noise Library
-    // ==========================================
     vec2 hash22(vec2 p) {
       p = vec2(dot(p, vec2(127.1, 311.7)), dot(p, vec2(269.5, 183.3)));
       return fract(sin(p) * 43758.5453123);
@@ -222,13 +213,9 @@ function initApp() {
       return valueNoise(p);
     }
 
-    // ==========================================
-    // Domain Warping Logic
-    // ==========================================
     float domainWarp(vec2 p) {
       if (!uWarpEnable) return evaluateNoise(p);
 
-      // 1차 왜곡 벡터 (Single Warping)
       vec2 q = vec2(
         evaluateNoise(p + vec2(0.0, 0.0)),
         evaluateNoise(p + vec2(5.2, 1.3))
@@ -238,7 +225,6 @@ function initApp() {
         return evaluateNoise(p + uWarpStrength * q);
       }
 
-      // 2차 왜곡 벡터 (Double Warping - 시간에 따른 액체 흐름 연출)
       vec2 r = vec2(
         evaluateNoise(p + uWarpStrength * q + vec2(1.7, 9.2) + 0.15 * uTime),
         evaluateNoise(p + uWarpStrength * q + vec2(8.3, 2.8) + 0.12 * uTime)
@@ -247,13 +233,8 @@ function initApp() {
       return evaluateNoise(p + uWarpStrength * r);
     }
 
-    // ==========================================
-    // Main Assembly
-    // ==========================================
     void main() {
       vec2 st = vUv * uNoiseScale;
-      
-      // Domain Warping이 적용된 노이즈 수치 추출
       float n = domainWarp(st);
 
       if (uDebugNoise) {
@@ -312,11 +293,12 @@ function initApp() {
   const sphere = new THREE.Mesh(geometry, material);
   scene.add(sphere);
 
-  // 5. lil-gui Inspector UI
+  // 5. lil-gui Inspector UI & Preset Handlers
+  let gui;
   try {
-    const gui = new GUI({ title: 'Shader LookDev Inspector' });
+    gui = new GUI({ title: 'Shader LookDev Inspector' });
 
-    // Procedural Noise
+    // Procedural Noise Folder
     const noiseFolder = gui.addFolder('Procedural Noise');
     const noiseAlgorithms = {
       'Value Noise': 0,
@@ -334,7 +316,7 @@ function initApp() {
     fbmFolder.add(uniforms.uLacunarity, 'value', 1.0, 4.0, 0.1).name('Lacunarity');
     fbmFolder.add(uniforms.uGain, 'value', 0.1, 0.9, 0.05).name('Gain');
 
-    // [신규] Domain Warping 폴더
+    // Domain Warping Folder
     const warpFolder = gui.addFolder('Domain Warping');
     warpFolder.add(uniforms.uWarpEnable, 'value').name('Enable Warping');
     warpFolder.add(uniforms.uWarpStrength, 'value', 0.0, 4.0, 0.1).name('Warp Strength');
@@ -342,15 +324,93 @@ function initApp() {
 
     gui.add(uniforms.uDebugNoise, 'value').name('Debug Raw Noise');
 
-    // PBR Surface
+    // PBR Surface Folder
     const surfaceFolder = gui.addFolder('PBR Surface & IBL');
     surfaceFolder.add(uniforms.uRoughness, 'value', 0.0, 1.0, 0.01).name('Roughness');
     surfaceFolder.add(uniforms.uMetallic, 'value', 0.0, 1.0, 0.01).name('Metallic');
     surfaceFolder.add(uniforms.uEnvIntensity, 'value', 0.0, 5.0, 0.1).name('Env Intensity');
 
+    // [신규] Preset Data Management Folder (JSON Export / Import)
+    const presetFolder = gui.addFolder('Preset Data Management');
+
+    const presetActions = {
+      exportPreset: () => {
+        const presetData = {
+          meta: {
+            tool: 'Shader LookDev Lab',
+            version: '1.0.0',
+            materialXTarget: 'standard_surface',
+            timestamp: new Date().toISOString()
+          },
+          parameters: {
+            uNoiseType: uniforms.uNoiseType.value,
+            uNoiseScale: uniforms.uNoiseScale.value,
+            uMaskCutoff: uniforms.uMaskCutoff.value,
+            uOctaves: uniforms.uOctaves.value,
+            uLacunarity: uniforms.uLacunarity.value,
+            uGain: uniforms.uGain.value,
+            uWarpEnable: uniforms.uWarpEnable.value,
+            uWarpStrength: uniforms.uWarpStrength.value,
+            uWarpIterations: uniforms.uWarpIterations.value,
+            uRoughness: uniforms.uRoughness.value,
+            uMetallic: uniforms.uMetallic.value,
+            uEnvIntensity: uniforms.uEnvIntensity.value
+          }
+        };
+
+        const jsonStr = JSON.stringify(presetData, null, 2);
+        const blob = new Blob([jsonStr], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `lookdev_preset_${Date.now().toString().slice(-6)}.json`;
+        a.click();
+        URL.revokeObjectURL(url);
+      },
+
+      importPreset: () => {
+        const fileInput = document.createElement('input');
+        fileInput.type = 'file';
+        fileInput.accept = '.json';
+
+        fileInput.onchange = (e) => {
+          const file = e.target.files[0];
+          if (!file) return;
+
+          const reader = new FileReader();
+          reader.onload = (event) => {
+            try {
+              const data = JSON.parse(event.target.result);
+              const params = data.parameters || data;
+
+              Object.keys(params).forEach((key) => {
+                if (uniforms[key] !== undefined) {
+                  uniforms[key].value = params[key];
+                }
+              });
+
+              // lil-gui 슬라이더 UI 갱신
+              gui.controllersRecursive().forEach(controller => controller.updateDisplay());
+              alert('프리셋 로드 완료!');
+            } catch (err) {
+              alert('유효하지 않은 프리셋 JSON 파일입니다.');
+            }
+          };
+          reader.readAsText(file);
+        };
+
+        fileInput.click();
+      }
+    };
+
+    presetFolder.add(presetActions, 'exportPreset').name('💾 Export JSON Preset');
+    presetFolder.add(presetActions, 'importPreset').name('📂 Import JSON Preset');
+
     noiseFolder.open();
     warpFolder.open();
     surfaceFolder.open();
+    presetFolder.open();
   } catch (e) {
     console.warn('lil-gui 로드 경고:', e);
   }
