@@ -50,16 +50,8 @@ GLSL 절차적 노이즈 및 PBR 머티리얼을 검증하고 프로토타이핑
 
 ---
 
-## References & Standards
 
-본 프로젝트는 아래의 공식 산업 표준 명세 및 그래픽스 연구를 기반으로 설계되었습니다.
-
-## 📚 Technical References & Citations
-
-본 프로젝트는 관련 기술 표준 명세, 렌더링 이론 및 공식 개발 문서를 참고하여 설계 및 구현되었습니다.
-
-
-# 기술 참고 자료 및 인용 (Technical References & Citations)
+## 📚기술 참고 자료 및 인용 (Technical References & Citations)
 
 본 프로젝트는 관련 기술 표준 명세, 렌더링 이론, 셰이더 알고리즘 및 공식 개발 문서를 참고하여 설계 및 구현되었습니다.
 
