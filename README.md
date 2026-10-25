@@ -56,27 +56,31 @@ GLSL 절차적 노이즈 및 PBR 머티리얼을 검증하고 프로토타이핑
 
 ## 📚 Technical References & Citations
 
-본 프로젝트는 아래의 공식 산업 표준 명세 및 레퍼런스를 바탕으로 설계되었습니다.
+본 프로젝트는 관련 기술 표준 명세, 렌더링 이론 및 공식 개발 문서를 참고하여 설계 및 구현되었습니다.
 
-### 1. Engine & Material Pipeline Standards
-* **[MaterialX & OpenUSD Standard (ASWF)](https://materialx.org/):** 루카스필름/ASWF 오픈소스 재질 메타데이터 데이터 교환 포맷 및 노드 데이터 구조
-* **[Unreal Engine 5 Substrate Material System](https://dev.epicgames.com/documentation/en-us/unreal-engine/substrate-materials-in-unreal-engine):** 차세대 모듈형 머티리얼 및 LookDev 파이프라인 구조
-* **[W3C WebGL2 Specifications](https://www.khronos.org/registry/webgl/specs/latest/2.0/):** 실시간 웹 그래픽스 파이프라인 표준 명세
+Technical References & Citations
 
-### 2. PBR Theory & LookDev Framework
-* **[Google Filament PBR Specification](https://google.github.io/filament/Filament.html):** PBR 표면 렌더링, Fresnel-Schlick 및 에너지 보존 법칙 표준 명세
-* **[Epic Games - Real Shading in Unreal Engine 4 (Brian Karis, SIGGRAPH)](https://blog.selfshadow.com/publications/s2013-shading-course/karis/s2013_pbs_epic_notes.pdf):** GGX BRDF 및 실시간 PBR 수학적 근거
-* **[EA Frostbite - Moving Frostbite to PBR (Sébastien Lagarde)](https://seblagarde.files.wordpress.com/2015/07/course_notes_moving_frostbite_to_pbr_v32.pdf):** 표준화된 LookDev 조명 통제 및 재질 칼리브레이션 평가 방법론
-* **[Adobe Substance 3D - The PBR Guide](https://substance3d.adobe.com/tutorials/courses/the-pbr-guide-part-1):** 물리 기반 재질 측정값 및 파라미터 기준
+본 프로젝트는 관련 기술 표준 명세, 렌더링 이론 및 공식 개발 문서를 참고하여 설계 및 구현되었습니다.
 
-### 3. Procedural Noise & Shader Algorithms
-* **[Inigo Quilez - Procedural Noise & Domain Warping](https://iquilezles.org/articles/warp/):** 2D/3D Value, Perlin, Voronoi 및 좌표 왜곡(Domain Warping) 알고리즘 원론
-* **[The Book of Shaders (Patricio Gonzalez Vivo)](https://thebookofshaders.com/):** GLSL 절차적 패턴 및 노이즈 구현 아키텍처
+1. Engine & Material Pipeline
+MaterialX & OpenUSD — Material interchange, shader graphs, and 3D scene description.
+Unreal Engine 5 — Substrate Materials — Modular material authoring and shading workflows.
+Khronos WebGL 2.0 Specification — Web graphics API specification.
 
-### 4. Interactive UI & Data Pipeline
-* **[lil-gui Documentation](https://lil-gui.georgealways.com/):** WebGL Uniform 파라미터 바인딩 및 실시간 인스펙터 패널 구축
-* **[Three.js OrbitControls Specification](https://threejs.org/docs/#examples/en/controls/OrbitControls):** LookDev 뷰포트 카메라 인터랙션 파이프라인
-* **[MDN Web Docs - File API & Blob](https://developer.mozilla.org/en-US/docs/Web/API/FileReader):** 클라이언트 사이드 JSON 프리셋 I/O 데이터 파이프라인
+3. PBR Theory & LookDev
+Google Filament — Physically Based Rendering — PBR material models, BRDFs, Fresnel reflectance, and energy conservation.
+Epic Games — Real Shading in Unreal Engine 4 — Microfacet BRDFs and GGX-based real-time shading.
+EA Frostbite — Moving Frostbite to PBR — PBR workflows and material consistency.
+Adobe Substance 3D — The PBR Guide — PBR material authoring principles and texture parameters.
+
+4. Procedural Noise & Shader Algorithms
+Inigo Quilez — Articles — Procedural noise, domain warping, and shader algorithms.
+The Book of Shaders — GLSL fragment shaders, procedural patterns, and noise techniques.
+
+5. Interactive UI & Data Pipeline
+lil-gui Documentation — Real-time parameter controls and interactive debugging interfaces.
+Three.js — OrbitControls — Interactive 3D viewport camera controls.
+MDN — File API & Blob — Client-side file handling and data import/export.
 
 ---
 
